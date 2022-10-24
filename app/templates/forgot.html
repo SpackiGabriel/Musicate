@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<link rel=stylesheet type=text/css href="{{url_for('static', filename='css/forgot.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/warning.css')}}">
+
+    <main class="l-main">
+        <div class="l-image">
+            <img class="image__svg" src="../static/svg/forgot-password-rafiki.svg">
+        </div>
+
+        <div class="l-content">
+            <form action="/users/recover/" class="content__form" method="POST">
+                <section class="title__data">
+                    <h1 class="title__text">Relaxa, nem tudo está perdido!</h1>
+                    <hr class="title__line">
+                </section>
+                <section class="form__inputs">
+                    <input type="email" name="email" placeholder="Insira seu e-mail aqui" class="form__input" required>
+                </section>
+                <button class="form__button">
+                    <h1 class="button__title">Recuperar</h1>
+                </button>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <p class="{{category}}">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </form>
+        </div>
+    </main>
+
+    <script src="../static/js/forms.js" defer></script>
+{% endblock %}

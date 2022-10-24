@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <link rel=stylesheet type=text/css href="{{url_for('static', filename='css/forgot.css')}}">
+
+    <main class="l-main">
+        <div class="l-image">
+            <img class="image__svg" src="../static/svg/fingerprint-cuate.svg">
+        </div>
+
+        <div class="l-content">
+            <form action="/users/confirm/" class="content__form" method="POST">
+                <section class="title__data">
+                    <h1 class="title__text">Verifique o seu email!</h1>
+                    <hr class="title__line">
+                </section>
+                <section class="form__inputs">
+                    <input type="text" name="token" placeholder="Insira o token aqui" class="form__input" required>
+                </section>
+                <button class="form__button">
+                    <h1 class="button__title">Trocar senha</h1>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="../static/js/forms.js" defer></script>
+{% endblock %}

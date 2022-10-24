@@ -1,0 +1,276 @@
+.l-main {
+    width: 100vw;
+    min-height: 100vh;
+
+    padding: 2%;
+    background-image: linear-gradient(180deg, var(--first-color) 20%, var(--first-color-darken) 70%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.l-user {
+    width: 20%;
+    height: 15%;
+
+    background: rgba(168, 187, 240, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, .3);
+
+    transition: .3s;
+    z-index: 5;
+
+    position: fixed;
+    top: 5%;
+    left: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.l-user:hover {
+    width: 25%;
+    height: 20%;
+
+    backdrop-filter: blur(6px)
+}
+
+.user__name {
+    font-size: 18pt;
+    font-weight: 600;
+    color: var(--white-color);
+
+    transition: .3s;
+}
+
+.l-user:hover>.user__name {
+    font-size: 22pt;
+}
+
+.user__data {
+    font-size: 12pt;
+    font-weight: 500;
+
+    transition: .3s;
+}
+
+.l-user:hover .user__data {
+    font-size: 15pt;
+}
+
+.l-options {
+    width: 5%;
+    height: 40%;
+
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.options__btn {
+    width: 4rem;
+    height: 4rem;
+
+    background-color: rgba(255, 255, 255, .4);
+    border: 1px solid rgba(255, 255, 255, 1);
+
+    font-size: 15pt;
+    color: var(--white-color);
+
+    outline: none;
+    border-radius: 100%;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: 1s;
+    animation: goDown 1s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-options.active>.options__btn {
+    visibility: visible;
+    opacity: 1;
+    animation: goUp 1s;
+}
+
+.options__toggle {
+    width: 4rem;
+    height: 4rem;
+
+    background-color: rgba(255, 255, 255, .4);
+    border: 1px solid rgba(255, 255, 255, .3);
+
+    outline: none;
+    border-radius: 100%;
+
+    transition: 1s;
+
+    font-size: 14pt;
+    color: var(--white-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-options.l-options.active>.options__toggle {
+    transform: rotate(135deg);
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.l-top {
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-modules {
+    width: 100%;
+    height: auto;
+    min-height: 70%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modules__section {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.l-module {
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 170px;
+
+    border-radius: 25px;
+    padding: 5px;
+
+    text-align: center;
+    color: var(--white-color);
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.answered {
+    background: var(--first-color-darken);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, .35);
+}
+
+.not__answered {
+    background: var(--first-color);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, .2);
+}
+
+.module__title {
+    font-size: 14pt;
+    font-weight: 400;
+    letter-spacing: 1pt;
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+    .l-user {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .l-options {
+        bottom: 1%;
+        right: 8%
+    }
+
+    .l-modules {
+        margin-top: 32px;
+
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .modules__section {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+    .l-user {
+        height: 25%;
+        width: 25%;
+
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .l-modules {
+        margin-top: 32px;
+
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .modules__section {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@keyframes goUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes goDown {
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    35% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}

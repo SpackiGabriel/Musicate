@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <link rel=stylesheet href="{{url_for('static', filename='css/configurations.css')}}">
+
+    <main class="l-main">
+        <div class="l-container">
+            <section class="user__data">
+                
+                <i class="fa-regular fa-user user__img"></i>
+                
+                <div class="user__text">
+                    <h1 class="user__info"><strong>nome: </strong>{{name}}</h1>
+                    <h1 class="user__info"><strong>email: </strong>{{email}}</h1>
+                    <h1 class="user__info"><strong>nivel: </strong>{{levelname}}</h1>
+                    <h1 class="user__info"><strong>xp: </strong>{{xp}}</h1>
+                </div>
+            </section>
+            <section class="user__configuration">
+                <div class="user__config">
+                    <section class="config__data">
+                        <h1 class="config__title">Nome</h1>
+                        <h1 class="config__value">{{name}}</h1>
+                    </section>
+
+                    <a class="config__link" href="/alterar/nome/">ALTERAR</a>
+                </div>
+                <div class="user__config">
+                    <section class="config__data">
+                        <h1 class="config__title">Email</h1>
+                        <h1 class="config__value">{{email}}</h1>
+                    </section>
+
+                    <a class="config__link" href="/alterar/email/">ALTERAR</a>
+                </div>
+
+                <a href="/deletar/conta/" class="config__delete">Deletar conta</a>
+            </section>
+        </div>
+    </main> 
+
+    <script src="../static/js/configurations.js" defer></script>
+{% endblock %}

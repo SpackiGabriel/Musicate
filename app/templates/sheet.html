@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/sheet.css')}}">
+
+    <main class="l-main">
+        <div class="l-container">
+
+            <a href="/feed/" class="container__button">
+                <i id="back" class="fa-solid fa-arrow-left container__icon"></i>
+            </a>
+
+            <a href="/partituras-com-clave-de-sol-2/" class="container__button">
+                <i id="next" class="fa-solid fa-arrow-right container__icon"></i>
+            </a>
+
+            <section class="title__data">
+                <h1 class="title__text">A pauta</h1>
+                <hr class="title__line">
+            </section>
+            <section class="text__section">
+                <p class="text__paragraph">
+                    Toda a partitura acontece em torno na pauta musical, que nada mais é do que um conjunto de linhas como esse:
+                </p>
+            </section>
+            <img class="container__image" src="{{url_for('static', filename='img/sheet.png')}}">
+            <section class="text__section">
+                <p class="text__paragraph">
+                    Mas como saber a nota que cada linha ou espaço representa?
+                </p>
+            </section>
+        </div>
+
+        <script src="../static/js/sheet.js" defer></script>
+    </main>
+{% endblock %}

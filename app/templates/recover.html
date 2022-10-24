@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <link rel=stylesheet type=text/css href="{{url_for('static', filename='css/forgot.css')}}">
+
+    <main class="l-main">
+        <div class="l-image">
+            <img class="image__svg" src="../static/svg/compose-music-rafiki.svg">
+        </div>
+
+        <div class="l-content">
+            <form action="/users/reset/" class="content__form" method="POST">
+                <section class="title__data">
+                    <h1 class="title__text">Crie sua nova senha!</h1>
+                    <hr class="title__line">
+                </section>
+                <section class="form__inputs">
+                    <input type="password" placeholder="Insira sua nova senha" name="password" class="form__input">
+                    <input type="password" placeholder="Confirme sua nova senha" name="password_confirmation" class="form__input">
+                </section>
+                <button class="form__button">
+                    <h1 class="button__title">Redefinir senha</h1>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="../static/js/forms.js" defer></script>
+
+{% endblock %}

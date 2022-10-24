@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <link rel=stylesheet href="{{url_for('static', filename='css/delete.css')}}">
+
+    <main class="l-main">
+        <div class="l-container">
+            <form action="/users/delete" method="POST" class="content__form">
+                <section class="title__data">
+                    <h1 class="title__text">Vai mesmo nos deixar? :(</h1>
+                    <hr class="title__line">
+                </section>
+                <section class="form__inputs">
+                    <input type="email" name="email" class="form__input" placeholder="Confirme seu email" required>
+                    <input type="password" name="password" class="form__input" placeholder="Confirme sua senha" required>
+                </section>
+                <button id="button" class="form__button">
+                    <h1 class="button__title">Até logo!</h1>
+                </button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

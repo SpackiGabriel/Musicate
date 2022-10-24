@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/cipher.css')}}">
+
+    <main class="l-main">
+        <div class="l-container">
+
+            <a href="/feed/" class="container__button">
+                <i class="fa-solid fa-arrow-left container__icon"></i>
+            </a>
+
+            <section class="title__data">
+                <h1 class="title__text">As cifras</h1>
+                <hr class="title__line">
+            </section>
+            <section class="text__section">
+                <p class="text__paragraph">
+                    A cifra é uma das diferentes maneiras de representar as notas de uma música por meio da escrita.
+                    Para começar, precisamos entender as 7 letras. Cada uma delas representa uma nota musical:
+                </p>
+            </section>
+            <img class="container__image" src="{{url_for('static', filename='img/cipher.png')}}">
+            <section class="text__section">
+                <p class="text__paragraph">
+                    Responda os módulos a seguir para liberar as próximas explicações sobre <b>cifras</b>!
+                </p>
+            </section>
+        </div>
+
+        <script src="../static/js/cipher.js" defer></script>
+    </main>
+{% endblock %}

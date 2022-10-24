@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<link rel=stylesheet type=text/css href="{{url_for('static', filename='css/register.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/warning.css')}}">
+
+    <main class="l-main">
+        <div class="l-image">
+            <img class="image__svg" src="../static/svg/playing-music-cuate.svg">
+        </div>
+
+        <div class="l-content">
+            <form action="/users/create" method="POST" class="content__form">
+                <section class="title__data">
+                    <h1 class="title__text">É bom te ver por aqui!</h1>
+                    <hr class="title__line">
+                </section>
+                <section class="form__inputs">
+                    <input id="name" type="text" name="name" class="form__input" placeholder="Qual o seu nome?" minlength="6" maxlength="35" required>
+                    <input id="email" type="email" name="email" class="form__input" placeholder="Insira o seu melhor e-mail!" minlength="6" maxlength="35" required>
+                    <input id="password" type="password" name="password" class="form__input" placeholder="Escolha uma senha segura" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,35}$" required>
+                    <input id="password_confirmation" type="password" name="password_confirmation" class="form__input" placeholder="Confirme sua senha" required>
+
+                    <label class="form__label">A sua senha deve conter pelo menos: 
+                        <ul>
+                            <li>- 6 caracteres</li>
+                            <li>- Uma letra maiúscula</li>
+                            <li>- Uma letra minúscula</li>
+                            <li>- Um número</li>
+                        </ul>
+                    </label>
+
+                </section>
+                <button id="button" class="form__button">
+                    <h1 class="button__title">Entrar</h1>
+                </button>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <p class="{{category}}">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </form>
+            <section class="content__links">
+                <a href="/login/" class="content__link">Já possui uma conta?</a>
+            </section>
+        </div>
+    </main>
+
+    <script src="../static/js/forms.js" defer></script>
+{% endblock %}

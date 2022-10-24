@@ -1,0 +1,65 @@
+.l-flash {
+    width: 40%;
+    height: 30%;
+
+    z-index: -2;
+    opacity: 0;
+
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+    border-radius: 25px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    text-align: center;
+
+    position: absolute;
+    bottom: 30%;
+
+    animation: show 2s ease-in-out;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flash__win {
+    background: rgba( 71, 229, 36, 0.25 );
+}
+
+.flash__error {
+    background: rgba( 150, 0, 0, 0.25 );
+}
+
+.flash__title {
+    font-weight: 500;
+    font-size: 24pt;
+
+    letter-spacing: 2pt;
+    color: var(--white-color);
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        z-index: 2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        z-index: 2;
+    }
+}

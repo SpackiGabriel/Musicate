@@ -1,0 +1,248 @@
+.l-main {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: linear-gradient(180deg, var(--first-color) 20%, var(--first-color-darken) 70%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-container {
+    width: 80%;
+    height: 80%;
+
+    background-color: var(--first-color-darken);
+
+    border-radius: 50px;
+    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.35);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user__data {
+    width: 40%;
+    height: 90%;
+
+    padding: 2%;
+    color: var(--white-color);
+
+    border-right: 1px solid black;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    gap: 2%;
+}
+
+.user__img {
+    font-size: 120pt;
+}
+
+.user__text {
+    width: 80%;
+    height: 40%;
+
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.user__info {
+    font-weight: 400;
+    font-size: 12pt;
+    margin-left: 10%;
+}
+
+.user__configuration {
+    width: 60%;
+    height: 100%;
+
+    padding: 2%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15%;
+}
+
+.user__config {
+    width: 90%;
+    height: 20%;
+
+    border-radius: 20px;
+    background-color: var(--first-color);
+    box-shadow: 1px 3px 10px 5px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15%;
+}
+
+.config__data {
+    width: 50%;
+    height: 100%;
+
+    color: var(--white-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.config__title {
+    font-size: 14pt;
+    font-weight: 500;
+}
+
+.config__value {
+    font-size: 12pt;
+    font-weight: 400;
+}
+
+.config__link {
+    width: 7rem;
+    height: 2.5rem;
+
+    background-color: var(--first-color-darken);
+    color: var(--white-color);
+    
+    box-shadow: 1px 3px 10px 5px rgba(0, 0, 0, .05);
+    border-radius: 10px;
+
+    transition: .3s;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.config__link:hover {
+    background-color: var(--first-color-ultra-dark);
+    box-shadow: 1px 3px 10px 5px rgba(0, 0, 0, .15);
+}
+
+.config__delete {
+    width: 8rem;
+    height: 3rem;
+
+    background-color: rgba(255, 0, 0, 0.66);
+    border-radius: 15px;
+
+    transition: .3s;
+
+    color: var(--white-color);
+    box-shadow: 1px 3px 10px 5px rgba(0, 0, 0, .05);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.config__delete:hover {
+    width: 8.5rem;
+
+    background-color: darkred;
+    box-shadow: 1px 3px 10px 5px rgba(0, 0, 0, .15);
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+    .l-container {
+        width: 100%;
+        height: 90%;
+
+        border-radius: 0;
+
+        flex-direction: column;
+    }
+
+    .user__data {
+        width: 90%;
+        height: 40%;
+
+        border-right: none;
+        border-bottom: 1px solid black;
+
+        flex-direction: row;
+    }
+
+    .user__img {
+        font-size: 128pt;
+    }
+
+    .user__text {
+        width: 70%;
+        height: 100%;
+
+        justify-content: center;
+        align-items: flex-start;
+    }
+    
+    .user__info {
+        font-weight: 400;
+        font-size: 9pt;
+    }
+
+    .user__configuration {
+        width: 100%;
+        height: 60%;
+    }
+
+    .config__config {
+        width: 100%;
+        height: 20%;
+    }
+
+    .config__data {
+        width: 40%;
+    }
+
+    .config__title {
+        font-size: 10pt;
+    }
+
+    .config__value {
+        font-size: 8pt;
+    }
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+    .l-container {
+        width: 100%;
+        height: 100%;
+
+        border-radius: 0;
+    }
+
+    .user__text {
+        width: 100%;
+    }
+
+    .user__info {
+        font-size: 10pt;
+    }
+
+    .user__config {
+        width: 100%;
+    }
+
+    .config__title {
+        font-size: 12pt;
+    }
+
+    .config__value {
+        font-size: 10pt;
+    }
+}

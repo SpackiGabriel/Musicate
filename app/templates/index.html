@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+
+    <!-- ===== CSS ===== -->
+    <link rel=stylesheet type=text/css href="{{url_for('static', filename='css/index.css')}}">
+
+    <title>Musicate</title>
+</head>
+<body>
+
+    {% block content %} {% endblock %}  
+
+    <!--===== FONT AWESOME =====-->
+    <script src="https://kit.fontawesome.com/0bf5f1099f.js" crossorigin="anonymous"></script>
+
+    <!--===== GSAP =====-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+</body>
+</html>

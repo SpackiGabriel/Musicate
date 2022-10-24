@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<link rel=stylesheet href="{{url_for('static', filename='css/login.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/warning.css')}}">
+
+    <main class="l-main">
+        <div class="l-image">
+            <img class="image__svg" src="../static/svg/playing-music-bro.svg">
+        </div>
+
+        <div class="l-content">
+            <form class="content__form" action="/users/login" method="POST">
+                <section class="title__data">
+                    <h1 class="title__text">Bem-vindo de volta!</h1>
+                    <hr class="title__line">
+                </section>
+                <section class="form__inputs">
+                    <input type="email" name="email" placeholder="Insira seu e-mail aqui" class="form__input" required>
+                    <input type="password" name="password" placeholder="Insira sua senha aqui" class="form__input" required>
+                </section>
+                <button class="form__button">
+                    <h1 class="button__title">Entrar</h1>
+                </button>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <p class="{{category}}">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+            </form>
+            <section class="content__links">
+                <a href="/registrar/" class="content__link">Ainda não possui uma conta?</a>
+                <a href="/esqueceu/" class="content__link">Esqueceu a sua senha?</a>
+            </section>
+        </div>
+    </main>
+
+    <script src="../static/js/forms.js" defer></script>
+{% endblock %}

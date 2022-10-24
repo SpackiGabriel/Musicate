@@ -1,0 +1,155 @@
+.l-main {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: linear-gradient(180deg, var(--first-color) 20%, var(--first-color-darken) 70%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-layout {
+    width: 90%;
+    height: 90%;
+
+    border: 1px solid yellow;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-container {
+    width: 50%;
+    height: 60%;
+
+    background-color: var(--white-color);
+    border-radius: 50px;
+
+    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.35);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__content {
+    width: 90%;
+    height: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container__top {
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__title {
+    font-size: 32pt;
+    font-weight: 500;
+}
+
+.container__buttons {
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    gap: 64px;
+}
+
+.container__button {
+    width: 30%;
+    height: 90%;
+
+    background-color: var(--first-color);
+    border-radius: 24px;
+
+    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.35);
+    transition: .4s;
+    
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.container__button:hover {
+    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.65);
+}
+
+.button__retry:hover .button__icon {
+    transform: rotateZ(270deg);
+    animation: rotate .4s ease-in;
+}
+
+.button__icon {
+    color: var(--white-color);
+    font-size: 64pt;
+}   
+
+@media (max-width: 700px) and (orientation: portrait) {
+    .l-container {
+        width: 80%;
+        height: 50%;
+    }
+
+    .container__title {
+        font-size: 20pt;
+    }
+
+    .container__buttons {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .container__button {
+        width: 100%;
+        height: 60%;
+    }
+
+    .button__icon {
+        font-size: 32pt;
+    }
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+    .container__title {
+        font-size: 20pt;
+    }
+
+    .button__icon {
+        font-size: 30pt;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(270deg);
+    }
+}
+
+@keyframes return {
+    0% {
+        transform: rotateZ(270deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+    }
+}

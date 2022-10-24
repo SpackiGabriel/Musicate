@@ -1,0 +1,129 @@
+.l-main {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: linear-gradient(180deg, var(--first-color) 20%, var(--first-color-darken) 70%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-container {
+    width: 35%;
+    height: 90%;
+
+    background-color: var(--white-color);
+    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.35);
+    border-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content__form {
+    width: 90%;
+    height: 90%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title__data {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title__line {
+    width: 70%;
+    height: 1px;
+
+    border: none;
+    border-top: 1.5px solid gray;
+}
+
+.form__inputs {
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.form__input {
+    width: 70%;
+    height: 45%;
+
+    background-color: var(--white-color);   
+    font-size: 12pt;
+
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    transition: .2s;
+}
+
+.form__input:focus {
+    background-color: rgba(120, 180, 250, .35);
+}
+
+.form__button {
+    width: 70%;
+    height: 10%;
+    
+    border-radius: 15px;
+    border: none;
+    outline: none;
+
+    background-image: linear-gradient(45deg, var(--green-color-dark), var(--green-color-light) 40%);
+    transition: .5s;
+}
+
+.button__title {
+    font-size: 14pt;
+    font-weight: 400;
+}
+
+.form__button:hover {
+    width: 74%;
+
+    background-image: linear-gradient(45deg, var(--green-color-dark), var(--green-color-light) 90%);
+
+    letter-spacing: 1.5pt;
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+
+    .l-container {
+        width: 90%;
+        height: 90%;
+    }
+
+    .content__form {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+    .l-container {
+        width: 60%;
+        height: 90%;
+    }
+
+    .content__form {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,168 @@
+.l-main {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: linear-gradient(180deg, var(--first-color) 20%, var(--first-color-darken) 70%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-container  {
+    width: 90%;
+    height: 90%;
+
+    position: relative;
+
+    padding: 2%;
+    border-radius: 50px;
+    background: var(--first-color);
+    box-shadow:  20px 20px 60px #1f47b5;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container__button {
+    opacity: .5;
+    transition: .2s;
+}
+
+.container__button:hover {
+    opacity: 1;
+}
+
+#back {
+    position: absolute;    
+    top: 5%;
+    left: 3%;
+}
+
+#next {
+    position: absolute;    
+    top: 5%;
+    right: 3%;
+}
+
+.container__icon {
+    color: var(--white-color);
+    font-size: 24pt;
+    transition: .2s;
+}
+
+.title__data {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title__text {
+    color: var(--white-color);
+    font-size: 28pt;
+}
+
+.title__line {
+    width: 40%;
+    height: 1px;
+
+    border: none;
+    border-top: 1.5px solid var(--white-color);
+}
+
+.text__section {
+    width: 70%;
+    height: 30%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text__paragraph {
+    text-align: justify;
+    font-weight: 400;
+    font-size: 12pt;
+    color: var(--white-color);
+}
+
+.container__image {
+    width: 60%;
+    border-radius: 25px;
+    box-shadow: 10px 10px 15px var(--first-color-darken);
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+    .container__button {
+        opacity: 1;
+    
+        top: 5%;
+        left: 10%;
+    }
+
+    .container__icon {
+        font-size: 24pt;
+    }
+
+    .title__text {
+        font-size: 20pt;
+    }
+
+    .title__line {
+        width: 70%;
+    }
+
+    .text__section {
+        width: 80%;
+        height: 30%;
+    }
+
+    .text__paragraph {
+        font-size: 10pt;
+    }
+
+    .container__image {
+        width: 90%;
+    }
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+    .l-container {
+        gap: 16px;
+    }
+
+    .container__button {
+        opacity: 1;
+    
+        top: 5%;
+        left: 5%;
+    }
+
+    .container__icon {
+        font-size: 24pt;
+    }
+
+    .title__text {
+        font-size: 24pt;
+    }
+
+    .text__section {
+        width: 80%;
+        height: 30%;
+    }
+
+    .text__paragraph {
+        font-size: 8pt;
+    }
+
+    .container__image {
+        width: 70%;
+    }
+}

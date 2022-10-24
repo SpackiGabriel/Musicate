@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <link rel=stylesheet href="{{url_for('static', filename='css/feed.css')}}">
+    <link rel=stylesheet type=text/css href="{{url_for('static', filename='css/flashes.css')}}">
+
+    <main class="l-main">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="l-flash {{category}}">
+                        <h1 class="flash__title">{{message}}</h1>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <aside class="l-user">
+            <h1 class="user__name">{{username}}:</h1>
+            <h1 class="user__data">Level: {{level}}</h3>
+            <h1 class="user__data">XP: {{xp}}</h3>
+        </aside>
+
+        <aside class="l-options">
+            <a class="options__btn" href="/configuracoes/">
+                <i class="fa-solid fa-gear"></i>
+            </a>
+            <a class="options__btn" href="/logout/">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+            <button class="options__toggle" onclick="toggleButtons();">
+                +
+            </button>
+        </aside>
+
+        <section class="l-top">
+            <a href="/jogar/init/0/0">
+                {% if cipherprogress > 1%}
+                    <div class="l-module answered">
+                {% else %}
+                    <div class="l-module not__answered">
+                {% endif %}
+                    <h1 class="module__title">O que são símbolos musicais?</h1>
+                </div>
+            </a>
+        </section>     
+         
+        <section class="l-modules">
+            <section class="modules__section">
+                <a href="/cifras/">
+                    <div class="l-module answered" class="module__link">
+                        <h1 class="module__title">Mundo das cifras</h1>
+                    </div>
+                </a>
+
+                {% for module in range(cipherprogress) %}
+                    {% if module + 1 == cipherprogress %}
+                        <a href="/jogar/cipher/{{module}}/0" class="module__link">
+                            <div class="l-module not__answered">
+                                <h1 class="module__title">{{module + 1}}</h1>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="/jogar/cipher/{{module}}/0" class="module__link">
+                            <div class="l-module answered">
+                                <h1 class="module__title">{{module + 1}}</h1>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </section>
+            <section class="modules__section">
+                <a href="/partituras-com-clave-de-sol/" class="module__link">
+                    <div class="l-module answered">
+                        <h1 class="module__title">Partituras com clave de sol</h1>
+                    </div>
+                </a>
+
+                {% for module in range(sheetprogress) %}
+                    {% if module + 1 == sheetprogress %}
+                        <a href="/jogar/sheet/{{module}}/0" class="module__link">
+                            <div class="l-module not__answered">
+                                <h1 class="module__title">{{module + 1}}</h1>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="/jogar/sheet/{{module}}/0" class="module__link">
+                            <div class="l-module answered">
+                                <h1 class="module__title">{{module + 1}}</h1>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </section>
+        </section>
+    </main> 
+
+    <script src="../static/js/feed.js" defer></script>
+{% endblock %}

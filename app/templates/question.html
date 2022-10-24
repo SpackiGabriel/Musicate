@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <link rel=stylesheet type=text/css href="{{url_for('static', filename='css/question.css')}}">
+    <link rel=stylesheet type=text/css href="{{url_for('static', filename='css/flashes.css')}}">
+
+    <main class="l-main">
+        <a href="/feed/" class="container__button">
+            <i class="fa-solid fa-arrow-left container__icon"></i>
+        </a>
+
+        <aside class="layout__lifes">
+            <h1 class="lifes__title">Vidas:</h1>
+            {% for i in range(lifes) %}
+                <i class="fa-solid fa-music life__icon"></i>
+            {% endfor %}
+        </aside>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="l-flash {{category}}">
+                    <h1 class="flash__title">{{message}}</h1>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="question__layout">
+            <section class="layout__top">
+                <div class="layout__content">
+                    {% if path != "null" %}
+                        <img class="layout__image" src={{path}} alt="">
+                    {% endif %}
+                    <h1 class="layout__question">{{question}}</h1>
+                </div>
+            </section>
+            <section class="layout__bottom">
+                {% for answer in answers %}
+                    {% if answer == correctAnswer %}
+                        <a href="/check/{{moduleName}}/{{moduleId}}/{{levelId}}/1" class="layout__link">
+                            <h3 class="alternative__title">{{answer}}</h3>
+                        </a>
+                    {% else %}
+                        <a href="/check/{{moduleName}}/{{moduleId}}/{{levelId}}/0" class="layout__link">
+                            <h3 class="alternative__title">{{answer}}</h3>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </section>
+        </div>
+    </main>
+{% endblock %}

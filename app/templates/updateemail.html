@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <link rel=stylesheet href="{{url_for('static', filename='css/updateemail.css')}}">
+
+    <main class="l-main">
+        <div class="l-container">
+            <form action="/users/update/email" method="POST" class="content__form">
+                <section class="title__data">
+                    <h1 class="title__text">Altere seu e-mail!</h1>
+                    <hr class="title__line">
+                </section>
+                <section class="form__inputs">
+                    <input type="email" name="email" class="form__input" placeholder="Insira o novo email" minlength="6" maxlength="35" required>
+                    <input type="password" name="password" class="form__input" placeholder="Insira sua senha" required>
+                </section>
+                <button id="button" class="form__button">
+                    <h1 class="button__title">Alterar</h1>
+                </button>
+            </form>
+        </div>
+    </main>
+{% endblock %}
