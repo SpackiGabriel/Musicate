@@ -1,14 +1,6 @@
 from flask import Flask, session
 from flask_sqlalchemy import SQLAlchemy
 
-
-'''
-## Gambiarra pra funcionar nos pc lab
-import pymysql
-from requests import Session
-pymysql.install_as_MySQLdb()
-'''
-
 app = Flask(__name__)
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
