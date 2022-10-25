@@ -42,9 +42,11 @@ def createUser():
         
             return redirect('/feed/')
         else:
-            raise Exception
+            flash("As senhas não conferem!", "flash__warning")
+            return redirect("/registrar/")
     
     except Exception as e:
+        print(e)
         flash("Email já cadastrado!", "flash__warning")
         return redirect("/registrar/")
     
@@ -89,8 +91,10 @@ def recoverUser():
         emailSender = "musicateincorporated@gmail.com"
         emailPssword = "toshtcphwlxuknac"
         
+        token = generateToken()
+
         session["email"] = body["email"]
-        session["token"] = generateToken()
+        session["token"] = token
 
         email = {
             "subject":"Esqueceu sua senha? Fica de boa :)",
@@ -122,7 +126,7 @@ def confirmUser():
         "token":request.form["token"]
     }
 
-    if session["token"] and body["token"] == session["token"]:
+    if "token" in session and body["token"] == session["token"]:
         del session["token"]
         return redirect("/recuperar/")
     
@@ -138,10 +142,9 @@ def resetUser():
 
     try:
         user = User.query.filter_by(email=session["email"]).first()
-        del session["email"]
 
         if user and body["password"] == body["password_confirmation"]:
-            user.password = body["password"]
+            user.password = crypt(body["password"])
 
             db.session.add(user)
             db.session.commit()
@@ -154,6 +157,7 @@ def resetUser():
         raise Exception
     
     except Exception as e:
+        print(e)
         flash("Algo deu errado!", "flash__warning")
         return redirect("/esqueceu/")
 
