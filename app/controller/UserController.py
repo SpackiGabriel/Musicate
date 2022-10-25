@@ -88,11 +88,9 @@ def recoverUser():
     try:
         emailSender = "musicateincorporated@gmail.com"
         emailPssword = "toshtcphwlxuknac"
-
-        token = generateToken()
-
+        
         session["email"] = body["email"]
-        session["token"] = token
+        session["token"] = generateToken()
 
         email = {
             "subject":"Esqueceu sua senha? Fica de boa :)",
@@ -128,7 +126,8 @@ def confirmUser():
         del session["token"]
         return redirect("/recuperar/")
     
-    return redirect("/confirmar/")
+    flash("Token incorreto!", "flash__warning")
+    return redirect("/esqueceu/")
 
 @app.route("/users/reset/", methods=["POST"])
 def resetUser():
@@ -148,11 +147,14 @@ def resetUser():
             db.session.commit()
 
             return redirect("/login/")
+        else:
+            flash("As senhas não conferem!", "flash__warning")
+            return redirect("/esqueceu/")
         
         raise Exception
     
     except Exception as e:
-        flash("As senhas não conferem!", "flash__warning")
+        flash("Algo deu errado!", "flash__warning")
         return redirect("/esqueceu/")
 
 @app.route("/users/update/email", methods=['POST'])
@@ -218,8 +220,6 @@ def deleteUser():
     
     password = crypt(body["password"])
     
-    print("####################################")
-    
     try:
         user = User.query.filter_by(email=session["email"]).first()
         progress = Progress.query.filter_by(id=session["idprogress"]).first()
@@ -232,8 +232,6 @@ def deleteUser():
             db.session.delete(progress)
             db.session.delete(level )
             db.session.commit()
-            
-            print("####################################")
             
             return redirect("/logout/")
     
