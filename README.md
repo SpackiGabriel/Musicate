@@ -16,7 +16,7 @@ Gamification-based web application for teaching musical symbols
 <p>
 
 <p>
-  For the ones that have interest in reading the article taht I wrote explaining all about the site you can access the link below: <br>
+  For the ones that have interest in reading the article I wrote explaining all about the site you can access the link below: <br>
   <a href="https://docs.google.com/document/d/1Q2ha1sd4cXSBYLffrx9KtaweauMehTj8YrLdSl-Tm0c/edit?usp=sharing">Read the article</a>
 </p>
 
